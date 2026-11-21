@@ -1,0 +1,3 @@
+"use client";
+import { useEffect, useState } from "react";
+export default function Countdown(){const target=new Date("2026-12-21T14:00:00+02:00").getTime();const [now,setNow]=useState(0);useEffect(()=>{setNow(Date.now());const id=setInterval(()=>setNow(Date.now()),1000);return()=>clearInterval(id)},[]);const diff=Math.max(0,target-now);const units=[["DAYS",Math.floor(diff/86400000)],["HRS",Math.floor(diff/3600000)%24],["MIN",Math.floor(diff/60000)%60],["SEC",Math.floor(diff/1000)%60]];return <div className="countdown" aria-label="Countdown to Summer Garden Experience">{units.map(([label,value])=><div key={label}><strong>{String(value).padStart(2,"0")}</strong><small>{label}</small></div>)}</div>}
