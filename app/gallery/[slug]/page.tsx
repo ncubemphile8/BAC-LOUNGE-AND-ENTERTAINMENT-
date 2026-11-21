@@ -1,6 +1,36 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-const stories:Record<string,{name:string;category:string;cover:string}> = {
+const stories:Record<string,{name:string;category:string;cover:string;note?:string}> = {
+  "jersey-fiesta": {
+    "name": "Jersey Fiesta",
+    "category": "2026 BAC gig guide",
+    "cover": "41082a56d80e5b9ff7d8976ecc25bec8.webp",
+    "note": "Jersey Fiesta appears in BAC's supplied 2026 gig guide. Dedicated event photographs can be added when available."
+  },
+  "friend-zone": {
+    "name": "Friend Zone / Mugaratia",
+    "category": "2026 BAC gig guide",
+    "cover": "41082a56d80e5b9ff7d8976ecc25bec8.webp",
+    "note": "Friend Zone / Mugaratia appears in BAC's supplied 2026 gig guide. Dedicated event photographs can be added when available."
+  },
+  "poly-after-party": {
+    "name": "Poly After Party",
+    "category": "2026 BAC gig guide",
+    "cover": "41082a56d80e5b9ff7d8976ecc25bec8.webp",
+    "note": "Poly After Party appears in BAC's supplied 2026 gig guide. Dedicated event photographs can be added when available."
+  },
+  "nash-zim": {
+    "name": "Nash Zim",
+    "category": "2026 BAC gig guide",
+    "cover": "41082a56d80e5b9ff7d8976ecc25bec8.webp",
+    "note": "Nash Zim appears in BAC's supplied 2026 gig guide. Dedicated event photographs can be added when available."
+  },
+  "sisterhood-festival": {
+    "name": "Sisterhood Festival",
+    "category": "2026 BAC gig guide",
+    "cover": "41082a56d80e5b9ff7d8976ecc25bec8.webp",
+    "note": "Sisterhood Festival appears in BAC's supplied 2026 gig guide. Dedicated event photographs can be added when available."
+  },
   "elevation-sessions": {
     "name": "Elevation Sessions",
     "category": "Food · music · drinks",
@@ -43,4 +73,4 @@ const stories:Record<string,{name:string;category:string;cover:string}> = {
   }
 };
 export function generateStaticParams(){return Object.keys(stories).map(slug=>({slug}));}
-export default async function EventStory({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const item=stories[slug]||stories["elevation-sessions"];const media="/api/media?file="+encodeURIComponent(item.cover);return <main className="archive-page"><nav className="nav"><Link href="/" className="brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><Link href="/gallery" className="back-link"><ArrowLeft size={16}/> EVENT ARCHIVE</Link><Link href="/entertainment" className="nav-cta">Entertainment <ArrowUpRight size={15}/></Link></nav><header className="story-hero" style={{backgroundImage:`linear-gradient(90deg,#090a10dc,#090a1050),url(${media})`}}><span className="eyebrow">THE HANGOUT BAC · EVENT STORY</span><p className="story-category">{item.category}</p><h1>{item.name}</h1><p>Original campaign artwork from The Hangout BAC.</p></header><section className="section-pad story-gallery"><div className="section-kicker">THE CAMPAIGN ARTWORK</div><div className="story-image-grid"><div className="story-image story-image-0" style={{backgroundImage:`url(${media})`,backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#111"}}/></div><div className="story-bottom"><span>THE HANGOUT BAC · BULAWAYO</span><Link href="/gallery" className="text-link dark-link">BACK TO ALL EVENTS <ArrowUpRight size={15}/></Link></div></section><footer className="footer"><Link href="/" className="brand footer-brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><p>Two worlds. One destination.</p><Link href="/lounge">The Lounge →</Link><small>© 2026 THE HANGOUT BAC</small></footer></main>}
+export default async function EventStory({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const item=stories[slug]||stories["elevation-sessions"];const media="/api/media?file="+encodeURIComponent(item.cover);return <main className="archive-page"><nav className="nav"><Link href="/" className="brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><Link href="/gallery" className="back-link"><ArrowLeft size={16}/> EVENT ARCHIVE</Link><Link href="/entertainment" className="nav-cta">Entertainment <ArrowUpRight size={15}/></Link></nav><header className="story-hero" style={{backgroundImage:`linear-gradient(90deg,#090a10dc,#090a1050),url(${media})`}}><span className="eyebrow">THE HANGOUT BAC · EVENT STORY</span><p className="story-category">{item.category}</p><h1>{item.name}</h1><p>{item.note || "Original campaign artwork from The Hangout BAC."}</p></header><section className="section-pad story-gallery"><div className="section-kicker">THE CAMPAIGN ARTWORK</div><div className="story-image-grid"><div className="story-image story-image-0" style={{backgroundImage:`url(${media})`,backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#111"}}/></div><div className="story-bottom"><span>THE HANGOUT BAC · BULAWAYO</span><Link href="/gallery" className="text-link dark-link">BACK TO ALL EVENTS <ArrowUpRight size={15}/></Link></div></section><footer className="footer"><Link href="/" className="brand footer-brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><p>Two worlds. One destination.</p><Link href="/lounge">The Lounge →</Link><small>© 2026 THE HANGOUT BAC</small></footer></main>}
