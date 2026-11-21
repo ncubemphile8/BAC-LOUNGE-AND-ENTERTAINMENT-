@@ -29,7 +29,7 @@ export default function Home() {
       <div className="section-kicker">01 / PICK YOUR PACE</div>
       <div className="intro-heading"><h2>Two worlds.<br/><i>One destination.</i></h2><p>Whether it's a laid-back lunch, after-work drinks or a night that deserves its own soundtrack — there's a place for you here.</p></div>
       <div className="world-grid">
-        <Link href="/lounge" className="world-card lounge-card" style={{backgroundImage:`linear-gradient(180deg,rgba(8,13,16,.04),rgba(8,13,16,.9)),url(/api/media?file=13fbc7d95927ec3cddc9fd99be2ddd89.webp)`}}>
+        <Link href="/lounge" className="world-card lounge-card" style={{backgroundImage:"linear-gradient(180deg,rgba(8,13,16,.04),rgba(8,13,16,.9))"}}><video className="world-card-video" src="/api/media?file=b4d59679-8542-4a76-b46b-9dfe26e4aee6.mp4" autoPlay muted loop playsInline preload="metadata"/>
           <div className="world-top"><span>WORLD 01</span><span className="round-arrow"><ArrowUpRight/></span></div>
           <div className="world-content"><div className="world-icons"><Utensils/><Martini/></div><h3>The Lounge</h3><p>Eat well. Drink up. Ease into the night.</p><span className="text-link">ENTER THE LOUNGE <ArrowUpRight size={16}/></span></div>
         </Link>
