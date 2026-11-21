@@ -1,7 +1,5 @@
 import Link from "next/link";
-import { ArrowDown, ArrowUpRight, Music2, Utensils, Martini, MapPin, Clock3, Ticket, Instagram, Facebook } from "lucide-react";
-
-const loungeImage = "/api/media?file=b4d59679-8542-4a76-b46b-9dfe26e4aee6.mp4";
+import { ArrowDown, ArrowUpRight, Music2, Utensils, Martini, MapPin, Clock3, Ticket } from "lucide-react";
 const partyImage = "/api/media?file=a0690a3aa8b1d4fe1e482af75c8e9e49.webp";
 
 export default function Home() {
@@ -12,7 +10,7 @@ export default function Home() {
       <a className="nav-cta" href="https://wa.me/263783852352?text=Hi%20The%20Hangout%20BAC%2C%20I%27d%20like%20to%20make%20an%20enquiry.">Let's talk <ArrowUpRight size={15}/></a>
     </nav>
 
-    <section className="hero">
+    <section className="hero">\n      <video className="hero-background-video" src="/api/media?file=8d6583a2-2d3f-42bf-96c4-1632d7cebc48.mp4" autoPlay muted loop playsInline preload="metadata" poster="/api/media?file=13fbc7d95927ec3cddc9fd99be2ddd89.webp"/>
       <div className="hero-noise"/>
       <div className="hero-glow"/>
       <div className="hero-copy">
