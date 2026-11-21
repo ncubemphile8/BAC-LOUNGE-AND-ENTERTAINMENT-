@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { ArrowDown, ArrowUpRight, Music2, Utensils, Martini, MapPin, Clock3, Ticket, Instagram, Facebook } from "lucide-react";
 
-const loungeImage = "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1800&q=88";
-const partyImage = "https://images.unsplash.com/photo-1571266028243-d220c9c3b8d2?auto=format&fit=crop&w=1800&q=88";
+const loungeImage = "/api/media?file=b4d59679-8542-4a76-b46b-9dfe26e4aee6.mp4";
+const partyImage = "/api/media?file=a0690a3aa8b1d4fe1e482af75c8e9e49.webp";
 
 export default function Home() {
   return <main>
@@ -29,7 +29,7 @@ export default function Home() {
       <div className="section-kicker">01 / PICK YOUR PACE</div>
       <div className="intro-heading"><h2>Two worlds.<br/><i>One destination.</i></h2><p>Whether it's a laid-back lunch, after-work drinks or a night that deserves its own soundtrack — there's a place for you here.</p></div>
       <div className="world-grid">
-        <Link href="/lounge" className="world-card lounge-card" style={{backgroundImage:`linear-gradient(180deg,rgba(8,13,16,.04),rgba(8,13,16,.9)),url(${loungeImage})`}}>
+        <Link href="/lounge" className="world-card lounge-card" style={{backgroundImage:`linear-gradient(180deg,rgba(8,13,16,.04),rgba(8,13,16,.9)),url(/api/media?file=13fbc7d95927ec3cddc9fd99be2ddd89.webp)`}}>
           <div className="world-top"><span>WORLD 01</span><span className="round-arrow"><ArrowUpRight/></span></div>
           <div className="world-content"><div className="world-icons"><Utensils/><Martini/></div><h3>The Lounge</h3><p>Eat well. Drink up. Ease into the night.</p><span className="text-link">ENTER THE LOUNGE <ArrowUpRight size={16}/></span></div>
         </Link>
@@ -45,10 +45,12 @@ export default function Home() {
     <section className="feature section-pad" id="events">
       <div className="feature-head"><div><div className="section-kicker">02 / ON THE RADAR</div><h2>Make a date<br/><i>with the good times.</i></h2></div><Link href="/entertainment" className="text-link dark-link">ALL EVENTS <ArrowUpRight size={16}/></Link></div>
       <div className="event-feature">
-        <div className="event-art"><div className="event-art-top">THE HANGOUT BAC PRESENTS</div><div className="event-art-title">SUMMER<br/><i>GARDEN</i><br/>EXPERIENCE</div><div className="event-art-foot">MUSIC · FOOD · THE GARDEN EXPERIENCE</div><span className="event-orbit">21<br/>DEC</span></div>
+        <div className="event-art" style={{background:"none",padding:0}}><img src="/api/media?file=IMG-20261109-WA0051.jpg" alt="Summer Garden Experience at The Hangout BAC" style={{width:"100%",height:"100%",objectFit:"cover",display:"block",borderRadius:"inherit"}}/></div>
         <div className="event-info"><span className="event-tag">FEATURED EXPERIENCE</span><h3>Summer Garden<br/>Experience</h3><p>A day in the garden. A night in the moment. Join us for music, food and a special guest experience.</p><div className="event-meta"><span><Clock3/> 14:00 till late</span><span><MapPin/> BAC Grounds, Bulawayo</span></div><div className="event-price"><div><small>GENERAL</small><strong>$15</strong></div><div><small>VIP</small><strong>$30</strong></div></div><a className="button button-dark" href="https://wa.me/263783852352?text=Hi%20BAC%2C%20I%27m%20enquiring%20about%20Summer%20Garden%20Experience%20on%2021%20December%202026.%20Please%20share%20ticket%20availability%20and%20payment%20details.">Enquire about tickets <ArrowUpRight size={16}/></a><small className="fine-print">Online ticket purchasing and WhatsApp enquiries will be available for event campaigns.</small></div>
       </div>
     </section>
+
+    <section className="stance-home section-pad"><div className="section-kicker">FEATURED AUTOMOTIVE EXPERIENCE</div><div className="stance-home-card" style={{backgroundImage:"linear-gradient(90deg,rgba(13,7,20,.92),rgba(13,7,20,.12)),url(/api/media?file=a0690a3aa8b1d4fe1e482af75c8e9e49.webp)"}}><div><span className="event-tag">12 DECEMBER · BAC GROUNDS</span><h2>STANCE<br/><i>NATION.</i></h2><p>Cars. Culture. Community. The automotive takeover at BAC.</p><a className="button button-light" href="https://wa.me/263783852352?text=Hi%20BAC%2C%20I%27d%20like%20to%20enquire%20about%20Stance%20Nation.">Stance Nation enquiry <ArrowUpRight size={16}/></a></div></div></section>
 
     <section className="manifesto"><div className="manifesto-mark">BAC<span>✳</span></div><p>Not just a place to go.<br/><i>A place to belong.</i></p><span>GOOD PEOPLE. GOOD VIBES. GOOD TIMES.</span></section>
 
