@@ -17,7 +17,7 @@ A two-world hospitality and entertainment website for The Hangout BAC in Bulaway
 - Past event archive and gallery framework.
 
 ## Stack
-Next.js 14 · React · TypeScript · CSS · Lucide icons
+Next.js 16 · React 19 · TypeScript · CSS · Lucide icons
 
 ## Run locally
 ```bash
