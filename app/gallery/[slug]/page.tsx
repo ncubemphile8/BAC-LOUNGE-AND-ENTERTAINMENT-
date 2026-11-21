@@ -1,12 +1,46 @@
 import Link from "next/link";
 import { ArrowLeft, ArrowUpRight } from "lucide-react";
-const stories:Record<string,{name:string;category:string;cover:string;images:string[]}> = {
- "jersey-fiesta":{name:"Jersey Fiesta",category:"Music & lifestyle",cover:"https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=1800&q=85",images:["photo-1506157786151-b8491531f063","photo-1470229722913-7c0e2dbbafd3","photo-1459749411175-04bf5292ceea"]},
- "friend-zone":{name:"Friend Zone",category:"Live entertainment",cover:"https://images.unsplash.com/photo-1506157786151-b8491531f063?auto=format&fit=crop&w=1800&q=85",images:["photo-1492684223066-81342ee5ff30","photo-1501386761578-eac5c94b800a","photo-1470229722913-7c0e2dbbafd3"]},
- "poly-after-party":{name:"Poly After Party",category:"Campus energy",cover:"https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?auto=format&fit=crop&w=1800&q=85",images:["photo-1506157786151-b8491531f063","photo-1492684223066-81342ee5ff30","photo-1459749411175-04bf5292ceea"]},
- "nash-zim":{name:"Nash Zim",category:"Festival moments",cover:"https://images.unsplash.com/photo-1459749411175-04bf5292ceea?auto=format&fit=crop&w=1800&q=85",images:["photo-1501386761578-eac5c94b800a","photo-1492684223066-81342ee5ff30","photo-1470229722913-7c0e2dbbafd3"]},
- "sisterhood-festival":{name:"Sisterhood Festival",category:"Community & culture",cover:"https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=1800&q=85",images:["photo-1492684223066-81342ee5ff30","photo-1506157786151-b8491531f063","photo-1501386761578-eac5c94b800a"]},
- "elevation-sessions":{name:"Elevation Sessions",category:"Good music, good people",cover:"https://images.unsplash.com/photo-1492684223066-81342ee5ff30?auto=format&fit=crop&w=1800&q=85",images:["photo-1470229722913-7c0e2dbbafd3","photo-1459749411175-04bf5292ceea","photo-1506157786151-b8491531f063"]}
+const stories:Record<string,{name:string;category:string;cover:string}> = {
+  "elevation-sessions": {
+    "name": "Elevation Sessions",
+    "category": "Food · music · drinks",
+    "cover": "be170f0f6109cb80131b77ba5b86f694.webp"
+  },
+  "party-on-a-thursday": {
+    "name": "Party on a Thursday",
+    "category": "Midweek vibes",
+    "cover": "443d819717fa45741ad99b9bc22de5a0.webp"
+  },
+  "saturday-hangout": {
+    "name": "Saturday Hangout",
+    "category": "Weekend sessions",
+    "cover": "d9398f40081e3c6eb4f8f0fdad39041b.webp"
+  },
+  "stella-friday": {
+    "name": "Stella Friday",
+    "category": "Friday sessions",
+    "cover": "d718e7ede34240024a6dec85f36271a1.webp"
+  },
+  "martell-friday": {
+    "name": "Martell Friday",
+    "category": "The Friday experience",
+    "cover": "7215266285388f0e9a7c5c1bcb6dacef.webp"
+  },
+  "hangout-fridays": {
+    "name": "Hangout Fridays",
+    "category": "Friday nights",
+    "cover": "b5b944a30e3a6f83fcf0babcca87a07d.webp"
+  },
+  "summer-garden": {
+    "name": "Summer Garden Experience",
+    "category": "DJ Maphorisa · 21 December",
+    "cover": "IMG-20261109-WA0051.jpg"
+  },
+  "stance-nation": {
+    "name": "Stance Nation",
+    "category": "Automotive culture · 12 December",
+    "cover": "a0690a3aa8b1d4fe1e482af75c8e9e49.webp"
+  }
 };
 export function generateStaticParams(){return Object.keys(stories).map(slug=>({slug}));}
-export default async function EventStory({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const story=stories[slug]||stories["jersey-fiesta"];return <main className="archive-page"><nav className="nav"><Link href="/" className="brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><Link href="/gallery" className="back-link"><ArrowLeft size={16}/> EVENT ARCHIVE</Link><Link href="/entertainment" className="nav-cta">Entertainment <ArrowUpRight size={15}/></Link></nav><header className="story-hero" style={{backgroundImage:`linear-gradient(90deg,#090a10dc,#090a1050),url(${story.cover})`}}><span className="eyebrow">THE HANGOUT BAC · EVENT STORY</span><p className="story-category">{story.category}</p><h1>{story.name}</h1><p>Good people. Good music. A night worth remembering.</p></header><section className="section-pad story-gallery"><div className="section-kicker">THE PHOTO STORY</div><div className="story-image-grid">{story.images.map((id,i)=><div key={id} className={"story-image story-image-"+i} style={{backgroundImage:`url(https://images.unsplash.com/${id}?auto=format&fit=crop&w=1300&q=85)`}}/> )}</div><div className="story-bottom"><span>THE HANGOUT BAC · BULAWAYO</span><Link href="/gallery" className="text-link dark-link">BACK TO ALL EVENTS <ArrowUpRight size={15}/></Link></div></section><footer className="footer"><Link href="/" className="brand footer-brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><p>Two worlds. One destination.</p><Link href="/lounge">The Lounge →</Link><small>© 2026 THE HANGOUT BAC</small></footer></main>}
+export default async function EventStory({params}:{params:Promise<{slug:string}>}){const {slug}=await params;const item=stories[slug]||stories["elevation-sessions"];const media="/api/media?file="+encodeURIComponent(item.cover);return <main className="archive-page"><nav className="nav"><Link href="/" className="brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><Link href="/gallery" className="back-link"><ArrowLeft size={16}/> EVENT ARCHIVE</Link><Link href="/entertainment" className="nav-cta">Entertainment <ArrowUpRight size={15}/></Link></nav><header className="story-hero" style={{backgroundImage:`linear-gradient(90deg,#090a10dc,#090a1050),url(${media})`}}><span className="eyebrow">THE HANGOUT BAC · EVENT STORY</span><p className="story-category">{item.category}</p><h1>{item.name}</h1><p>Original campaign artwork from The Hangout BAC.</p></header><section className="section-pad story-gallery"><div className="section-kicker">THE CAMPAIGN ARTWORK</div><div className="story-image-grid"><div className="story-image story-image-0" style={{backgroundImage:`url(${media})`,backgroundSize:"contain",backgroundRepeat:"no-repeat",backgroundColor:"#111"}}/></div><div className="story-bottom"><span>THE HANGOUT BAC · BULAWAYO</span><Link href="/gallery" className="text-link dark-link">BACK TO ALL EVENTS <ArrowUpRight size={15}/></Link></div></section><footer className="footer"><Link href="/" className="brand footer-brand"><span className="brand-mark">H</span><span>THE HANGOUT<small>— BAC —</small></span></Link><p>Two worlds. One destination.</p><Link href="/lounge">The Lounge →</Link><small>© 2026 THE HANGOUT BAC</small></footer></main>}
